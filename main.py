@@ -1,6 +1,7 @@
 import ArmAngles, time
 import paho.mqtt.publish as mqttPub
 
+offset = 1
 
 prefab1 = [
     [0,0,0],
@@ -78,7 +79,7 @@ while True:
         arm1Len = 6
         arm2Len = 6
 
-        angles = ArmAngles.getAngles(armLenA=arm1Len, armLenB=arm2Len, targetPos=[x,y+.75])
+        angles = ArmAngles.getAngles(armLenA=arm1Len, armLenB=arm2Len, targetPos=[x,y+offset])
         print(f"{angles[1]} {180-angles[0]} {z}")
         publish(f"{angles[1]} {180-angles[0]} {z}")
         time.sleep(1)
